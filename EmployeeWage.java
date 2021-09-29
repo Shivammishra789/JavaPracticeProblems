@@ -16,8 +16,17 @@
 
 	int Monthly_Wage = 0;
 
+	
+	int Working_Hrs = 0;
 
 	for(int i=1;i<=20;i++){
+
+	if(Working_Hrs > 100 ){
+		
+				break; 
+		
+				}
+	else			{
 
 	double Emp_Check = Math.floor(Math.random() *10 )%3;
 
@@ -35,6 +44,8 @@
 			int Emp_Wage = Wage_Per_Day * Full_Day_Hr;
 
 			Monthly_Wage+=Emp_Wage;
+
+			Working_Hrs+=8;
    		    }
     		    break;  
     	 case 2:  {
@@ -42,6 +53,8 @@
 			int Emp_Wage = Wage_Per_Day * Part_Day_Hr;
 
 			Monthly_Wage+=Emp_Wage;
+
+			Working_Hrs+=4;
   		  } 
    		   break;  
   
@@ -52,7 +65,10 @@
 
 			}
        	       }
-	System.out.println("Monthly Wage Of Employee Is " + Monthly_Wage);
 
-	 }
+	}
+	System.out.println("Total Working Hours Of Employee Are " + Working_Hrs);
+	System.out.println("Monthly Wage Of Employee Is " + Monthly_Wage);
+	 		
+                 }       
    }
