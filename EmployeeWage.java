@@ -1,74 +1,67 @@
-   public class EmployeeWage {
+public class EmployeeWage {
+	
+    public static final int Is_Full_Time = 1;
 
-   public static void main(String[] args) {
+    public static final int Is_Part_Time = 2;
 
-	System.out.println("Welcome to Employee Wage Computation Program !");
+    public static final int Wage_Per_Hr = 20;
 
-	int Wage_Per_Day = 20;
+    public static final int Max_Working_Days = 20;
 
-	int Full_Day_Hr = 8;
+    public static final int Max_Monthly_Hrs = 100;
 
-	int Is_Part_Time = 2;
-
-	int Is_Present = 1;
-
-	int Part_Day_Hr = 4;
-
-	int Monthly_Wage = 0;
+public static void main(String[] args) {
 
 	
-	int Working_Hrs = 0;
+    //Variables
 
-	for(int i=1;i<=20;i++){
+    int Emp_Hrs=0; 
+    int Total_Working_Days = 0; 
+    int Total_Working_Hrs = 0;
 
-	if(Working_Hrs > 100 ){
-		
-				break; 
-		
-				}
-	else			{
+    while ( Total_Working_Hrs <= Max_Monthly_Hrs &&
 
-	double Emp_Check = Math.floor(Math.random() *10 )%3;
+            Total_Working_Days < Max_Working_Days ) {
 
-	int Random = (int) Emp_Check;
+    Total_Working_Days++;
 
 
-	//Switch expression  
+    double Emp_Check = Math.floor(Math.random() *10 )%3;
 
-   	switch(Random){  
 
-	//Case statements  
+    //Switch expression
 
-	 case 1:   {
+    switch((int) Emp_Check){
 
-			int Emp_Wage = Wage_Per_Day * Full_Day_Hr;
+    //Case statements
 
-			Monthly_Wage+=Emp_Wage;
+     case Is_Full_Time:
 
-			Working_Hrs+=8;
-   		    }
-    		    break;  
-    	 case 2:  {
+                       Emp_Hrs=8;
 
-			int Emp_Wage = Wage_Per_Day * Part_Day_Hr;
+                       break;
+     case Is_Part_Time:
 
-			Monthly_Wage+=Emp_Wage;
+                       Emp_Hrs=4;
 
-			Working_Hrs+=4;
-  		  } 
-   		   break;  
-  
-       //Default case statement  
-         default:   
+                       break;
 
-		   break;
+   //Default case statement
+     default:
 
-			}
-       	       }
+                      Emp_Hrs=0;
 
-	}
-	System.out.println("Total Working Hours Of Employee Are " + Working_Hrs);
-	System.out.println("Monthly Wage Of Employee Is " + Monthly_Wage);
-	 		
-                 }       
-   }
+                       break;
+                    }
+
+    Total_Working_Hrs+=Emp_Hrs;
+
+    System.out.println("Day:" + Total_Working_Days + " Emp Hr: " + Emp_Hrs);
+    
+    	}
+
+    int Monthly_Emp_Wage =Total_Working_Hrs*Wage_Per_Hr;
+    System.out.println("Total Employee Wage is : " + Monthly_Emp_Wage);
+
+   	}
+}
